@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+
+// SOLUCION: usamos un puntero para recibir la direccion
+// de la variable original.
+void cambiarValor(int *numero)
+{
+    // SOLUCION: con * accedemos al valor de la variable
+    // original y podemos modificarlo.
+    *numero = 100;
+}
+
+int main()
+{
+    // La variable comienza con el valor 25
+    int numero = 25;
+
+    cout << "Antes de llamar a la funcion: " << numero << endl;
+
+    // SOLUCION: usamos & para enviar la direccion
+    // de memoria de la variable numero.
+    cambiarValor(&numero);
+
+    // Ahora numero vale 100 porque la funcion
+    // modifico directamente la variable original.
+    cout << "Despues de llamar a la funcion: " << numero << endl;
+
+    return 0;
+}

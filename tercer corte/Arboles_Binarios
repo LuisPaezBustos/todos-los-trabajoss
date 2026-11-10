@@ -1,0 +1,63 @@
+#include <iostream>
+using namespace std;
+
+struct Nodo {
+    int dato;
+    Nodo* izq;
+    Nodo* der;
+
+    Nodo(int valor) {
+        dato = valor;
+        izq = nullptr;
+        der = nullptr;
+    }
+};
+
+void preorden(Nodo* nodo) {
+    if (nodo == nullptr) return;
+    cout << nodo->dato << " ";
+    preorden(nodo->izq);
+    preorden(nodo->der);
+}
+
+void inorden(Nodo* nodo) {
+    if (nodo == nullptr) return;
+    inorden(nodo->izq);
+    cout << nodo->dato << " ";
+    inorden(nodo->der);
+}
+
+void posorden(Nodo* nodo) {
+    if (nodo == nullptr) return;
+    posorden(nodo->izq);
+    posorden(nodo->der);
+    cout << nodo->dato << " ";
+}
+
+int main() {
+    //       1
+    //      / \
+    //     2   3
+    //    / \
+    //   4   5
+
+    Nodo* raiz = new Nodo(1);
+    raiz->izq = new Nodo(2);
+    raiz->der = new Nodo(3);
+    raiz->izq->izq = new Nodo(4);
+    raiz->izq->der = new Nodo(5);
+
+    cout << "Preorden:  ";
+    preorden(raiz);
+    cout << endl;
+
+    cout << "Inorden:   ";
+    inorden(raiz);
+    cout << endl;
+
+    cout << "Posorden:  ";
+    posorden(raiz);
+    cout << endl;
+
+    return 0;
+}

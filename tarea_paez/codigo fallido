@@ -1,0 +1,20 @@
+podrias solucionar el siguiente codigo : #include <iostream>
+using namespace std;
+
+void cambiarValor(int numero)
+{
+    numero = 100;
+}
+
+int main()
+{
+    int numero = 25;
+
+    cout << "Antes de llamar a la funcion: " << numero << endl;
+
+    cambiarValor(numero);
+
+    cout << "Despues de llamar a la funcion: " << numero << endl;
+
+    return 0;
+}
